@@ -1,0 +1,84 @@
+/**
+* CSS Border utilities
+*/
+.tf {
+  &-border {
+    border-width: 1px;
+    border-style: solid;
+    border-color: $tf-light;
+
+    &-bottom {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: $tf-light;
+    }
+
+    &-top {
+      border-top-width: 1px;
+      border-top-style: solid;
+      border-top-color: $tf-light;
+    }
+
+    &-left {
+      border-left-width: 1px;
+      border-left-style: solid;
+      border-left-color: $tf-light;
+    }
+
+    &-right {
+      border-right-width: 1px;
+      border-right-style: solid;
+      border-right-color: $tf-light;
+    }
+
+    &-y {
+      border-top-width: 1px;
+      border-top-style: solid;
+      border-top-color: $tf-light;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: $tf-light;
+    }
+
+    &-x {
+      border-left-width: 1px;
+      border-left-style: solid;
+      border-left-color: $tf-light;
+      border-right-width: 1px;
+      border-right-style: solid;
+      border-right-color: $tf-light;
+    }
+
+    &-primary {
+      border-color: $tf-primary !important;
+    }
+
+    &-secondary {
+      border-color: $tf-secondary !important;
+    }
+
+    &-success {
+      border-color: $tf-success !important;
+    }
+
+    &-danger {
+      border-color: $tf-danger !important;
+    }
+
+    &-info {
+      border-color: $tf-info !important;
+    }
+
+    &-warning {
+      border-color: $tf-warning !important;
+    }
+
+    &-dark {
+      border-color: $tf-dark !important;
+    }
+
+    &-light {
+      border-color: $tf-light !important;
+    }
+  }
+}

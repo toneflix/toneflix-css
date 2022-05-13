@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "Signika";
+  src: url(./utility/Signika.ttf);
+}
+
+.tf {
+  &-font {
+    &-signika {
+      font-family: "Signika";
+    }
+
+    /**
+  * Font Sizes
+  * These utilities handle font sizing and are based on a 0.6 to 6.1 EM scale
+  */
+    &-xxs {
+      font-size: 0.6em;
+    }
+    &-xs {
+      font-size: 1.1em;
+    }
+    &-sm {
+      font-size: 2.1em;
+    }
+    &-md {
+      font-size: 3.1em;
+    }
+    &-lg {
+      font-size: 4.1em;
+    }
+    &-xl {
+      font-size: 5.1em;
+    }
+    &-xxl {
+      font-size: 6.1em;
+    }
+
+    /**
+  * Font Weight
+  * These utilities handle font weigthing.
+  */
+    &-bold {
+      font-weight: 700;
+    }
+    &-semi-bold {
+      font-weight: 600;
+    }
+    &-medium {
+      font-weight: 500;
+    }
+    &-regular {
+      font-weight: 400;
+    }
+    &-light {
+      font-weight: 300;
+    }
+
+    /**
+  * Font Spacing
+  * These utilities handle font spacing.
+  */
+    &-thight {
+      letter-spacing: -0.1em;
+    }
+    &-compact {
+      letter-spacing: 0.1em;
+    }
+    &-wide {
+      letter-spacing: 0.2em;
+    }
+    &-wider {
+      letter-spacing: 0.3em;
+    }
+    &-xtra-wide {
+      letter-spacing: 0.4em;
+    }
+    &-expanded {
+      letter-spacing: 0.5em;
+    }
+  }
+
+  // max-width: 576px
+  @include mobile-up {
+    &-font {
+      /**
+  * Font Sizes for mobile screens
+  * These utilities handle font sizing for mobile screens and are based on a 0.6 to 6.1 EM scale
+  */
+      &-xxs {
+        font-size: 0.35em;
+      }
+      &-xs {
+        font-size: 0.45em;
+      }
+      &-sm {
+        font-size: 1.1em;
+      }
+      &-md {
+        font-size: 1.5em;
+      }
+      &-lg {
+        font-size: 2em;
+      }
+      &-xl {
+        font-size: 3em;
+      }
+      &-xxl {
+        font-size: 4em;
+      }
+    }
+  }
+
+  // max-width: 576px
+  @include tiny-screen {
+    &-font {
+      /**
+  * Font Sizes for mobile screens
+  * These utilities handle font sizing for mobile screens and are based on a 0.6 to 6.1 EM scale
+  */
+      &-xxs {
+        font-size: 0.2em;
+      }
+      &-xs {
+        font-size: 0.3em;
+      }
+      &-sm {
+        font-size: 0.6em;
+      }
+      &-md {
+        font-size: 1.2em;
+      }
+      &-lg {
+        font-size: 1.6em;
+      }
+      &-xl {
+        font-size: 2em;
+      }
+      &-xxl {
+        font-size: 3em;
+      }
+    }
+  }
+}
