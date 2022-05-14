@@ -1,0 +1,149 @@
+$sizes: (
+  5,
+  10,
+  20,
+  30,
+  40,
+  50,
+  60,
+  70,
+  80,
+  90,
+  100,
+  120,
+  140,
+  160,
+  180,
+  200,
+  300
+);
+//
+@mixin set-size($size: 5, $pref: "h", $type: "height", $unit: "px") {
+  .tf {
+    &-#{$pref} {
+      &-#{$size} {
+        #{$type}: #{$size}#{$unit} !important;
+      }
+    }
+  }
+}
+
+/*
+  * Generate heights
+  * Loop through sizes to generate classes
+  * Classes will be usable like .tf-h-{size}
+  * Example: <div class"tf-h-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-h-100 {
+  *     height: 100px !important;
+  * }
+  */
+@each $size in $sizes {
+  @include set-size($size, "h", $type: "height");
+}
+
+/*
+  * Generate min-heights
+  * Loop through sizes to generate classes
+  * Classes will be usable like .tf-min-h-{size}
+  * Example: <div class"tf-min-h-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-min-h-100 {
+  *     min-height: 100px !important;
+  * }
+  */
+@each $size in $sizes {
+  @include set-size($size, "min-h", $type: "min-height");
+}
+
+/*
+  * Generate heights based on the viewport
+  * Loop through sizes to generate classes
+  * Classes will be usable like .tf-view-h-{size}
+  * Example: <div class"tf-view-h-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-view-h-100 {
+  *     height: 100vh !important;
+  * }
+  */
+@each $size in $sizes {
+  @include set-size($size, "view-h", $type: "height", $unit: "vh");
+}
+
+/*
+  * Generate min-heights based on the viewport
+  * Loop through sizes to generate classes
+  * Classes will be usable like .tf-view-h-{size}
+  * Example: <div class"tf-min-view-h-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-min-view-h-100 {
+  *     min-height: 100vh !important;
+  * }
+  */
+@each $size in $sizes {
+  @include set-size($size, "min-view-h", $type: "min-height", $unit: "vh");
+}
+
+/*
+  * Generate Widths
+  * Loop through sizes to generate classes
+  * Classes will be usable like .tf-w-{size}
+  * Example: <div class"tf-w-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-w-100 {
+  *     widht: 100px !important;
+  * }
+  */
+@each $size in $sizes {
+  @include set-size($size, "w", $type: "width");
+}
+
+/*
+  * Generate min-widths
+  * Loop through sizes to generate classes
+  * Classes will be usable like .tf-min-w-{size}
+  * Example: <div class"tf-min-w-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-min-w-100 {
+  *     min-width: 100px !important;
+  * }
+  */
+@each $size in $sizes {
+  @include set-size($size, "min-w", $type: "min-width");
+}
+
+/*
+  * Generate widths based on the viewport
+  * Loop through sizes to generate classes
+  * Classes will be usable like .tf-view-w-{size}
+  * Example: <div class"tf-view-w-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-view-w-100 {
+  *     width: 100vw !important;
+  * }
+  */
+@each $size in $sizes {
+  @include set-size($size, "view-w", $type: "width", $unit: "vw");
+}
+
+/*
+  * Generate min-widths based on the viewport
+  * Loop through sizes to generate classes
+  * Classes will be usable like .tf-view-w-{size}
+  * Example: <div class"tf-min-view-w-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-min-view-w-100 {
+  *     min-width: 100vw !important;
+  * }
+  */
+@each $size in $sizes {
+  @include set-size($size, "min-view-w", $type: "min-width", $unit: "vw");
+}

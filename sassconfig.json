@@ -1,0 +1,10 @@
+{
+  "outDir": "./build",
+  "removeComments": false,
+  "sourceMaps": true,
+  "indentType": "tab",
+  "indentWidth": 2,
+  "linefeed": "crlf",
+  "omitSourceMapUrl": false,
+  "outputStyle": "expanded"
+}

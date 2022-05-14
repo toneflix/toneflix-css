@@ -1,0 +1,96 @@
+/**
+* CSS Border utilities
+*/
+.tf {
+  &-border {
+    border-width: 1px;
+    border-style: solid;
+    border-color: --tf-light;
+
+    &-bottom {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: --tf-light;
+    }
+
+    &-top {
+      border-top-width: 1px;
+      border-top-style: solid;
+      border-top-color: --tf-light;
+    }
+
+    &-left {
+      border-left-width: 1px;
+      border-left-style: solid;
+      border-left-color: --tf-light;
+    }
+
+    &-right {
+      border-right-width: 1px;
+      border-right-style: solid;
+      border-right-color: --tf-light;
+    }
+
+    &-y {
+      border-top-width: 1px;
+      border-top-style: solid;
+      border-top-color: --tf-light;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: --tf-light;
+    }
+
+    &-x {
+      border-left-width: 1px;
+      border-left-style: solid;
+      border-left-color: --tf-light;
+      border-right-width: 1px;
+      border-right-style: solid;
+      border-right-color: --tf-light;
+    }
+  }
+}
+
+$border-colors: (
+  "primary",
+  "secodary",
+  "success",
+  "dander",
+  "info",
+  "warning",
+  "dark",
+  "light",
+  "blue",
+  "blue-2",
+  "green",
+  "green-2",
+  "red",
+  "red-2",
+  "pink",
+  "pink-2",
+  "orange",
+  "orange-2",
+  "yellow",
+  "yellow-2"
+);
+
+/**
+  * Generate CSS Border colors
+  * Loop through border-colors to generate classes
+  * Classes will be usable like .tf-border-{border-color-name}
+  * Example: <div class"tf-border-primary"></div>
+  *
+  * Generated class would look like:
+  * .tf-border-primary {
+  *     border-color: --tf-primary !important;
+  * }
+  */
+.tf {
+  &-border {
+    @each $color in $border-colors {
+      &-#{$color} {
+        border-color: --tf-#{$color} !important;
+      }
+    }
+  }
+}

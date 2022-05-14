@@ -1,0 +1,53 @@
+// Main Colors
+$tf-primary: #1976d2;
+$tf-secondary: #26a69a;
+$tf-success: #21ba45;
+$tf-danger: #c10015;
+$tf-info: #31ccec;
+$tf-warning: #f2c037;
+$tf-dark: #1d1d1d;
+$tf-light: #dddcdc;
+
+// Secondary COlors
+$tf-blue: rgba(41, 76, 240, 1);
+$tf-blue-2: rgba(41, 152, 240, 1);
+$tf-green: rgba(42, 158, 6, 1);
+$tf-green-2: rgba(116, 206, 17, 1);
+$tf-red: rgba(235, 55, 3, 1);
+$tf-red-2: rgb(235, 69, 18);
+$tf-pink: rgba(191, 42, 169, 1);
+$tf-pink-2: rgb(230, 51, 203);
+$tf-orange: rgba(235, 105, 3, 1);
+$tf-orange-2: rgb(235, 127, 45);
+$tf-yellow: rgb(252, 205, 19);
+$tf-yellow-2: rgb(248, 230, 35);
+$venus: #998099;
+
+:root {
+  --tf-primary: scale-color($venus, $lightness: +15%);
+  --tf-primary: #1976d2;
+  --tf-secondary: #26a69a;
+  --tf-success: #21ba45;
+  --tf-danger: #c10015;
+  --tf-info: #31ccec;
+  --tf-warning: #f2c037;
+  --tf-dark: #1d1d1d;
+  --tf-light: #dddcdc;
+
+  --tf-blue: rgba(41, 76, 240, 1);
+  --tf-blue-2: rgba(41, 152, 240, 1);
+  --tf-green: rgba(42, 158, 6, 1);
+  --tf-green-2: rgba(116, 206, 17, 1);
+  --tf-red: rgba(235, 55, 3, 1);
+  --tf-red-2: rgb(235, 69, 18);
+  --tf-pink: rgba(191, 42, 169, 1);
+  --tf-pink-2: rgb(230, 51, 203);
+  --tf-orange: rgba(235, 105, 3, 1);
+  --tf-orange-2: rgb(235, 127, 45);
+  --tf-yellow: rgb(252, 205, 19);
+  --tf-yellow-2: rgb(248, 230, 35);
+}
+
+body {
+  background-color: var(--tf-green-2);
+}
