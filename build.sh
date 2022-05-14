@@ -93,6 +93,6 @@ if [[ "$help" == "0" ]]; then
   if [[ -n $input_file ]] && [[ -n $output_file ]]; then
     sass ${params}"${input_file}" "${output_file}/build/toneflix-utility.${ext}"
   else
-    sass ${params}"${curr_dir}/index.scss" "${curr_dir}/build/toneflix-utility.${ext}"
+    sass ${params}"${curr_dir}/src/index.scss" "${curr_dir}/build/toneflix-utility.${ext}"
   fi
 fi
