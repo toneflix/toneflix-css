@@ -1,34 +1,33 @@
 :root {
-		--tf-primary: scale-color($venus, $lightness: +15%);
-		--tf-primary: #1976d2;
-		--tf-secondary: #26a69a;
-		--tf-success: #21ba45;
-		--tf-danger: #c10015;
-		--tf-info: #31ccec;
-		--tf-warning: #f2c037;
-		--tf-dark: #1d1d1d;
-		--tf-light: #dddcdc;
-		--tf-blue: rgba(41, 76, 240, 1);
-		--tf-blue-2: rgba(41, 152, 240, 1);
-		--tf-green: rgba(42, 158, 6, 1);
-		--tf-green-2: rgba(116, 206, 17, 1);
-		--tf-red: rgba(235, 55, 3, 1);
-		--tf-red-2: rgb(235, 69, 18);
-		--tf-pink: rgba(191, 42, 169, 1);
-		--tf-pink-2: rgb(230, 51, 203);
-		--tf-orange: rgba(235, 105, 3, 1);
-		--tf-orange-2: rgb(235, 127, 45);
-		--tf-yellow: rgb(252, 205, 19);
-		--tf-yellow-2: rgb(248, 230, 35);
+  --tf-primary: #1976d2;
+  --tf-secondary: #26a69a;
+  --tf-success: #21ba45;
+  --tf-danger: #c10015;
+  --tf-info: #31ccec;
+  --tf-warning: #f2c037;
+  --tf-dark: #1d1d1d;
+  --tf-light: #dddcdc;
+  --tf-blue: rgba(41, 76, 240, 1);
+  --tf-blue-2: rgba(41, 152, 240, 1);
+  --tf-green: rgba(42, 158, 6, 1);
+  --tf-green-2: rgba(116, 206, 17, 1);
+  --tf-red: rgba(235, 55, 3, 1);
+  --tf-red-2: rgb(235, 69, 18);
+  --tf-pink: rgba(191, 42, 169, 1);
+  --tf-pink-2: rgb(230, 51, 203);
+  --tf-orange: rgba(235, 105, 3, 1);
+  --tf-orange-2: rgb(235, 127, 45);
+  --tf-yellow: rgb(252, 205, 19);
+  --tf-yellow-2: rgb(248, 230, 35);
 }
 
 body {
-		background-color: var(--tf-green-2);
+  background-color: var(--tf-green-2);
 }
 
 /*
   * Generate heights
-  * Loop through sizes to generate classes
+  * Loop through $sizes to generate classes
   * Classes will be usable like .tf-h-{size}
   * Example: <div class"tf-h-100"></div>
   *
@@ -38,76 +37,76 @@ body {
   * }
   */
 .tf-h-5 {
-		height: 5px !important;
+  height: 5px !important;
 }
 
 .tf-h-10 {
-		height: 10px !important;
+  height: 10px !important;
 }
 
 .tf-h-20 {
-		height: 20px !important;
+  height: 20px !important;
 }
 
 .tf-h-30 {
-		height: 30px !important;
+  height: 30px !important;
 }
 
 .tf-h-40 {
-		height: 40px !important;
+  height: 40px !important;
 }
 
 .tf-h-50 {
-		height: 50px !important;
+  height: 50px !important;
 }
 
 .tf-h-60 {
-		height: 60px !important;
+  height: 60px !important;
 }
 
 .tf-h-70 {
-		height: 70px !important;
+  height: 70px !important;
 }
 
 .tf-h-80 {
-		height: 80px !important;
+  height: 80px !important;
 }
 
 .tf-h-90 {
-		height: 90px !important;
+  height: 90px !important;
 }
 
 .tf-h-100 {
-		height: 100px !important;
+  height: 100px !important;
 }
 
 .tf-h-120 {
-		height: 120px !important;
+  height: 120px !important;
 }
 
 .tf-h-140 {
-		height: 140px !important;
+  height: 140px !important;
 }
 
 .tf-h-160 {
-		height: 160px !important;
+  height: 160px !important;
 }
 
 .tf-h-180 {
-		height: 180px !important;
+  height: 180px !important;
 }
 
 .tf-h-200 {
-		height: 200px !important;
+  height: 200px !important;
 }
 
 .tf-h-300 {
-		height: 300px !important;
+  height: 300px !important;
 }
 
 /*
   * Generate min-heights
-  * Loop through sizes to generate classes
+  * Loop through $sizes to generate classes
   * Classes will be usable like .tf-min-h-{size}
   * Example: <div class"tf-min-h-100"></div>
   *
@@ -117,76 +116,76 @@ body {
   * }
   */
 .tf-min-h-5 {
-		min-height: 5px !important;
+  min-height: 5px !important;
 }
 
 .tf-min-h-10 {
-		min-height: 10px !important;
+  min-height: 10px !important;
 }
 
 .tf-min-h-20 {
-		min-height: 20px !important;
+  min-height: 20px !important;
 }
 
 .tf-min-h-30 {
-		min-height: 30px !important;
+  min-height: 30px !important;
 }
 
 .tf-min-h-40 {
-		min-height: 40px !important;
+  min-height: 40px !important;
 }
 
 .tf-min-h-50 {
-		min-height: 50px !important;
+  min-height: 50px !important;
 }
 
 .tf-min-h-60 {
-		min-height: 60px !important;
+  min-height: 60px !important;
 }
 
 .tf-min-h-70 {
-		min-height: 70px !important;
+  min-height: 70px !important;
 }
 
 .tf-min-h-80 {
-		min-height: 80px !important;
+  min-height: 80px !important;
 }
 
 .tf-min-h-90 {
-		min-height: 90px !important;
+  min-height: 90px !important;
 }
 
 .tf-min-h-100 {
-		min-height: 100px !important;
+  min-height: 100px !important;
 }
 
 .tf-min-h-120 {
-		min-height: 120px !important;
+  min-height: 120px !important;
 }
 
 .tf-min-h-140 {
-		min-height: 140px !important;
+  min-height: 140px !important;
 }
 
 .tf-min-h-160 {
-		min-height: 160px !important;
+  min-height: 160px !important;
 }
 
 .tf-min-h-180 {
-		min-height: 180px !important;
+  min-height: 180px !important;
 }
 
 .tf-min-h-200 {
-		min-height: 200px !important;
+  min-height: 200px !important;
 }
 
 .tf-min-h-300 {
-		min-height: 300px !important;
+  min-height: 300px !important;
 }
 
 /*
   * Generate heights based on the viewport
-  * Loop through sizes to generate classes
+  * Loop through $sizes to generate classes
   * Classes will be usable like .tf-view-h-{size}
   * Example: <div class"tf-view-h-100"></div>
   *
@@ -196,76 +195,76 @@ body {
   * }
   */
 .tf-view-h-5 {
-		height: 5vh !important;
+  height: 5vh !important;
 }
 
 .tf-view-h-10 {
-		height: 10vh !important;
+  height: 10vh !important;
 }
 
 .tf-view-h-20 {
-		height: 20vh !important;
+  height: 20vh !important;
 }
 
 .tf-view-h-30 {
-		height: 30vh !important;
+  height: 30vh !important;
 }
 
 .tf-view-h-40 {
-		height: 40vh !important;
+  height: 40vh !important;
 }
 
 .tf-view-h-50 {
-		height: 50vh !important;
+  height: 50vh !important;
 }
 
 .tf-view-h-60 {
-		height: 60vh !important;
+  height: 60vh !important;
 }
 
 .tf-view-h-70 {
-		height: 70vh !important;
+  height: 70vh !important;
 }
 
 .tf-view-h-80 {
-		height: 80vh !important;
+  height: 80vh !important;
 }
 
 .tf-view-h-90 {
-		height: 90vh !important;
+  height: 90vh !important;
 }
 
 .tf-view-h-100 {
-		height: 100vh !important;
+  height: 100vh !important;
 }
 
 .tf-view-h-120 {
-		height: 120vh !important;
+  height: 120vh !important;
 }
 
 .tf-view-h-140 {
-		height: 140vh !important;
+  height: 140vh !important;
 }
 
 .tf-view-h-160 {
-		height: 160vh !important;
+  height: 160vh !important;
 }
 
 .tf-view-h-180 {
-		height: 180vh !important;
+  height: 180vh !important;
 }
 
 .tf-view-h-200 {
-		height: 200vh !important;
+  height: 200vh !important;
 }
 
 .tf-view-h-300 {
-		height: 300vh !important;
+  height: 300vh !important;
 }
 
 /*
   * Generate min-heights based on the viewport
-  * Loop through sizes to generate classes
+  * Loop through $sizes to generate classes
   * Classes will be usable like .tf-view-h-{size}
   * Example: <div class"tf-min-view-h-100"></div>
   *
@@ -275,76 +274,76 @@ body {
   * }
   */
 .tf-min-view-h-5 {
-		min-height: 5vh !important;
+  min-height: 5vh !important;
 }
 
 .tf-min-view-h-10 {
-		min-height: 10vh !important;
+  min-height: 10vh !important;
 }
 
 .tf-min-view-h-20 {
-		min-height: 20vh !important;
+  min-height: 20vh !important;
 }
 
 .tf-min-view-h-30 {
-		min-height: 30vh !important;
+  min-height: 30vh !important;
 }
 
 .tf-min-view-h-40 {
-		min-height: 40vh !important;
+  min-height: 40vh !important;
 }
 
 .tf-min-view-h-50 {
-		min-height: 50vh !important;
+  min-height: 50vh !important;
 }
 
 .tf-min-view-h-60 {
-		min-height: 60vh !important;
+  min-height: 60vh !important;
 }
 
 .tf-min-view-h-70 {
-		min-height: 70vh !important;
+  min-height: 70vh !important;
 }
 
 .tf-min-view-h-80 {
-		min-height: 80vh !important;
+  min-height: 80vh !important;
 }
 
 .tf-min-view-h-90 {
-		min-height: 90vh !important;
+  min-height: 90vh !important;
 }
 
 .tf-min-view-h-100 {
-		min-height: 100vh !important;
+  min-height: 100vh !important;
 }
 
 .tf-min-view-h-120 {
-		min-height: 120vh !important;
+  min-height: 120vh !important;
 }
 
 .tf-min-view-h-140 {
-		min-height: 140vh !important;
+  min-height: 140vh !important;
 }
 
 .tf-min-view-h-160 {
-		min-height: 160vh !important;
+  min-height: 160vh !important;
 }
 
 .tf-min-view-h-180 {
-		min-height: 180vh !important;
+  min-height: 180vh !important;
 }
 
 .tf-min-view-h-200 {
-		min-height: 200vh !important;
+  min-height: 200vh !important;
 }
 
 .tf-min-view-h-300 {
-		min-height: 300vh !important;
+  min-height: 300vh !important;
 }
 
 /*
   * Generate Widths
-  * Loop through sizes to generate classes
+  * Loop through $sizes to generate classes
   * Classes will be usable like .tf-w-{size}
   * Example: <div class"tf-w-100"></div>
   *
@@ -354,76 +353,76 @@ body {
   * }
   */
 .tf-w-5 {
-		width: 5px !important;
+  width: 5px !important;
 }
 
 .tf-w-10 {
-		width: 10px !important;
+  width: 10px !important;
 }
 
 .tf-w-20 {
-		width: 20px !important;
+  width: 20px !important;
 }
 
 .tf-w-30 {
-		width: 30px !important;
+  width: 30px !important;
 }
 
 .tf-w-40 {
-		width: 40px !important;
+  width: 40px !important;
 }
 
 .tf-w-50 {
-		width: 50px !important;
+  width: 50px !important;
 }
 
 .tf-w-60 {
-		width: 60px !important;
+  width: 60px !important;
 }
 
 .tf-w-70 {
-		width: 70px !important;
+  width: 70px !important;
 }
 
 .tf-w-80 {
-		width: 80px !important;
+  width: 80px !important;
 }
 
 .tf-w-90 {
-		width: 90px !important;
+  width: 90px !important;
 }
 
 .tf-w-100 {
-		width: 100px !important;
+  width: 100px !important;
 }
 
 .tf-w-120 {
-		width: 120px !important;
+  width: 120px !important;
 }
 
 .tf-w-140 {
-		width: 140px !important;
+  width: 140px !important;
 }
 
 .tf-w-160 {
-		width: 160px !important;
+  width: 160px !important;
 }
 
 .tf-w-180 {
-		width: 180px !important;
+  width: 180px !important;
 }
 
 .tf-w-200 {
-		width: 200px !important;
+  width: 200px !important;
 }
 
 .tf-w-300 {
-		width: 300px !important;
+  width: 300px !important;
 }
 
 /*
   * Generate min-widths
-  * Loop through sizes to generate classes
+  * Loop through $sizes to generate classes
   * Classes will be usable like .tf-min-w-{size}
   * Example: <div class"tf-min-w-100"></div>
   *
@@ -433,76 +432,76 @@ body {
   * }
   */
 .tf-min-w-5 {
-		min-width: 5px !important;
+  min-width: 5px !important;
 }
 
 .tf-min-w-10 {
-		min-width: 10px !important;
+  min-width: 10px !important;
 }
 
 .tf-min-w-20 {
-		min-width: 20px !important;
+  min-width: 20px !important;
 }
 
 .tf-min-w-30 {
-		min-width: 30px !important;
+  min-width: 30px !important;
 }
 
 .tf-min-w-40 {
-		min-width: 40px !important;
+  min-width: 40px !important;
 }
 
 .tf-min-w-50 {
-		min-width: 50px !important;
+  min-width: 50px !important;
 }
 
 .tf-min-w-60 {
-		min-width: 60px !important;
+  min-width: 60px !important;
 }
 
 .tf-min-w-70 {
-		min-width: 70px !important;
+  min-width: 70px !important;
 }
 
 .tf-min-w-80 {
-		min-width: 80px !important;
+  min-width: 80px !important;
 }
 
 .tf-min-w-90 {
-		min-width: 90px !important;
+  min-width: 90px !important;
 }
 
 .tf-min-w-100 {
-		min-width: 100px !important;
+  min-width: 100px !important;
 }
 
 .tf-min-w-120 {
-		min-width: 120px !important;
+  min-width: 120px !important;
 }
 
 .tf-min-w-140 {
-		min-width: 140px !important;
+  min-width: 140px !important;
 }
 
 .tf-min-w-160 {
-		min-width: 160px !important;
+  min-width: 160px !important;
 }
 
 .tf-min-w-180 {
-		min-width: 180px !important;
+  min-width: 180px !important;
 }
 
 .tf-min-w-200 {
-		min-width: 200px !important;
+  min-width: 200px !important;
 }
 
 .tf-min-w-300 {
-		min-width: 300px !important;
+  min-width: 300px !important;
 }
 
 /*
   * Generate widths based on the viewport
-  * Loop through sizes to generate classes
+  * Loop through $sizes to generate classes
   * Classes will be usable like .tf-view-w-{size}
   * Example: <div class"tf-view-w-100"></div>
   *
@@ -512,76 +511,76 @@ body {
   * }
   */
 .tf-view-w-5 {
-		width: 5vw !important;
+  width: 5vw !important;
 }
 
 .tf-view-w-10 {
-		width: 10vw !important;
+  width: 10vw !important;
 }
 
 .tf-view-w-20 {
-		width: 20vw !important;
+  width: 20vw !important;
 }
 
 .tf-view-w-30 {
-		width: 30vw !important;
+  width: 30vw !important;
 }
 
 .tf-view-w-40 {
-		width: 40vw !important;
+  width: 40vw !important;
 }
 
 .tf-view-w-50 {
-		width: 50vw !important;
+  width: 50vw !important;
 }
 
 .tf-view-w-60 {
-		width: 60vw !important;
+  width: 60vw !important;
 }
 
 .tf-view-w-70 {
-		width: 70vw !important;
+  width: 70vw !important;
 }
 
 .tf-view-w-80 {
-		width: 80vw !important;
+  width: 80vw !important;
 }
 
 .tf-view-w-90 {
-		width: 90vw !important;
+  width: 90vw !important;
 }
 
 .tf-view-w-100 {
-		width: 100vw !important;
+  width: 100vw !important;
 }
 
 .tf-view-w-120 {
-		width: 120vw !important;
+  width: 120vw !important;
 }
 
 .tf-view-w-140 {
-		width: 140vw !important;
+  width: 140vw !important;
 }
 
 .tf-view-w-160 {
-		width: 160vw !important;
+  width: 160vw !important;
 }
 
 .tf-view-w-180 {
-		width: 180vw !important;
+  width: 180vw !important;
 }
 
 .tf-view-w-200 {
-		width: 200vw !important;
+  width: 200vw !important;
 }
 
 .tf-view-w-300 {
-		width: 300vw !important;
+  width: 300vw !important;
 }
 
 /*
   * Generate min-widths based on the viewport
-  * Loop through sizes to generate classes
+  * Loop through $sizes to generate classes
   * Classes will be usable like .tf-view-w-{size}
   * Example: <div class"tf-min-view-w-100"></div>
   *
@@ -591,340 +590,340 @@ body {
   * }
   */
 .tf-min-view-w-5 {
-		min-width: 5vw !important;
+  min-width: 5vw !important;
 }
 
 .tf-min-view-w-10 {
-		min-width: 10vw !important;
+  min-width: 10vw !important;
 }
 
 .tf-min-view-w-20 {
-		min-width: 20vw !important;
+  min-width: 20vw !important;
 }
 
 .tf-min-view-w-30 {
-		min-width: 30vw !important;
+  min-width: 30vw !important;
 }
 
 .tf-min-view-w-40 {
-		min-width: 40vw !important;
+  min-width: 40vw !important;
 }
 
 .tf-min-view-w-50 {
-		min-width: 50vw !important;
+  min-width: 50vw !important;
 }
 
 .tf-min-view-w-60 {
-		min-width: 60vw !important;
+  min-width: 60vw !important;
 }
 
 .tf-min-view-w-70 {
-		min-width: 70vw !important;
+  min-width: 70vw !important;
 }
 
 .tf-min-view-w-80 {
-		min-width: 80vw !important;
+  min-width: 80vw !important;
 }
 
 .tf-min-view-w-90 {
-		min-width: 90vw !important;
+  min-width: 90vw !important;
 }
 
 .tf-min-view-w-100 {
-		min-width: 100vw !important;
+  min-width: 100vw !important;
 }
 
 .tf-min-view-w-120 {
-		min-width: 120vw !important;
+  min-width: 120vw !important;
 }
 
 .tf-min-view-w-140 {
-		min-width: 140vw !important;
+  min-width: 140vw !important;
 }
 
 .tf-min-view-w-160 {
-		min-width: 160vw !important;
+  min-width: 160vw !important;
 }
 
 .tf-min-view-w-180 {
-		min-width: 180vw !important;
+  min-width: 180vw !important;
 }
 
 .tf-min-view-w-200 {
-		min-width: 200vw !important;
+  min-width: 200vw !important;
 }
 
 .tf-min-view-w-300 {
-		min-width: 300vw !important;
+  min-width: 300vw !important;
 }
 
 @font-face {
-		font-family: "Signika";
-		src: url(./utility/Signika.ttf);
+  font-family: "Signika";
+  src: url(./utility/Signika.ttf);
 }
 .tf-font {
-		/**
+  /**
 		* Font Sizes
 		* These utilities handle font sizing and are based on a 0.6 to 6.1 EM scale
 		*/
-		/**
+  /**
 		* Font Weight
 		* These utilities handle font weigthing.
 		*/
-		/**
+  /**
 		* Font Spacing
 		* These utilities handle font spacing.
 		*/
 }
 .tf-font-signika {
-		font-family: "Signika";
+  font-family: "Signika";
 }
 .tf-font-xxs {
-		font-size: 0.5em;
+  font-size: 0.5em;
 }
 .tf-font-xs {
-		font-size: 0.8em;
+  font-size: 0.8em;
 }
 .tf-font-sm {
-		font-size: 1.1em;
+  font-size: 1.1em;
 }
 .tf-font-md {
-		font-size: 2.1em;
+  font-size: 2.1em;
 }
 .tf-font-lg {
-		font-size: 3.1em;
+  font-size: 3.1em;
 }
 .tf-font-xl {
-		font-size: 4.1em;
+  font-size: 4.1em;
 }
 .tf-font-xxl {
-		font-size: 5.1em;
+  font-size: 5.1em;
 }
 .tf-font-2xl {
-		font-size: 6.1em;
+  font-size: 6.1em;
 }
 .tf-font-bold {
-		font-weight: 700;
+  font-weight: 700;
 }
 .tf-font-semi-bold {
-		font-weight: 600;
+  font-weight: 600;
 }
 .tf-font-medium {
-		font-weight: 500;
+  font-weight: 500;
 }
 .tf-font-regular {
-		font-weight: 400;
+  font-weight: 400;
 }
 .tf-font-light {
-		font-weight: 300;
+  font-weight: 300;
 }
 .tf-font-thight {
-		letter-spacing: -0.1em;
+  letter-spacing: -0.1em;
 }
 .tf-font-compact {
-		letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
 }
 .tf-font-wide {
-		letter-spacing: 0.2em;
+  letter-spacing: 0.2em;
 }
 .tf-font-wider {
-		letter-spacing: 0.3em;
+  letter-spacing: 0.3em;
 }
 .tf-font-xtra-wide {
-		letter-spacing: 0.4em;
+  letter-spacing: 0.4em;
 }
 .tf-font-expanded {
-		letter-spacing: 0.5em;
+  letter-spacing: 0.5em;
 }
 @media only screen and (max-width: 576px) {
-		.tf-font {
-				/**
+  .tf-font {
+    /**
 				* Font Sizes for mobile screens
 				* These utilities handle font sizing for mobile screens and are based on a 0.6 to 6.1 EM scale
 				*/
-		}
-		.tf-font-xxs {
-				font-size: 0.35em;
-		}
-		.tf-font-xs {
-				font-size: 0.45em;
-		}
-		.tf-font-sm {
-				font-size: 1.1em;
-		}
-		.tf-font-md {
-				font-size: 1.5em;
-		}
-		.tf-font-lg {
-				font-size: 2em;
-		}
-		.tf-font-xl {
-				font-size: 3em;
-		}
-		.tf-font-xxl {
-				font-size: 4em;
-		}
+  }
+  .tf-font-xxs {
+    font-size: 0.35em;
+  }
+  .tf-font-xs {
+    font-size: 0.45em;
+  }
+  .tf-font-sm {
+    font-size: 1.1em;
+  }
+  .tf-font-md {
+    font-size: 1.5em;
+  }
+  .tf-font-lg {
+    font-size: 2em;
+  }
+  .tf-font-xl {
+    font-size: 3em;
+  }
+  .tf-font-xxl {
+    font-size: 4em;
+  }
 }
 @media only screen and (max-width: 360px) {
-		.tf-font {
-				/**
+  .tf-font {
+    /**
 				* Font Sizes for mobile screens
 				* These utilities handle font sizing for mobile screens and are based on a 0.6 to 6.1 EM scale
 				*/
-		}
-		.tf-font-xxs {
-				font-size: 0.2em;
-		}
-		.tf-font-xs {
-				font-size: 0.3em;
-		}
-		.tf-font-sm {
-				font-size: 0.6em;
-		}
-		.tf-font-md {
-				font-size: 1.2em;
-		}
-		.tf-font-lg {
-				font-size: 1.6em;
-		}
-		.tf-font-xl {
-				font-size: 2em;
-		}
-		.tf-font-xxl {
-				font-size: 3em;
-		}
+  }
+  .tf-font-xxs {
+    font-size: 0.2em;
+  }
+  .tf-font-xs {
+    font-size: 0.3em;
+  }
+  .tf-font-sm {
+    font-size: 0.6em;
+  }
+  .tf-font-md {
+    font-size: 1.2em;
+  }
+  .tf-font-lg {
+    font-size: 1.6em;
+  }
+  .tf-font-xl {
+    font-size: 2em;
+  }
+  .tf-font-xxl {
+    font-size: 3em;
+  }
 }
 
 /**
 * CSS Border utilities
 */
 .tf-border {
-		border-width: 1px;
-		border-style: solid;
-		border-color: --tf-light;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--tf-light);
 }
 .tf-border-bottom {
-		border-bottom-width: 1px;
-		border-bottom-style: solid;
-		border-bottom-color: --tf-light;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--tf-light);
 }
 .tf-border-top {
-		border-top-width: 1px;
-		border-top-style: solid;
-		border-top-color: --tf-light;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--tf-light);
 }
 .tf-border-left {
-		border-left-width: 1px;
-		border-left-style: solid;
-		border-left-color: --tf-light;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: var(--tf-light);
 }
 .tf-border-right {
-		border-right-width: 1px;
-		border-right-style: solid;
-		border-right-color: --tf-light;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: var(--tf-light);
 }
 .tf-border-y {
-		border-top-width: 1px;
-		border-top-style: solid;
-		border-top-color: --tf-light;
-		border-bottom-width: 1px;
-		border-bottom-style: solid;
-		border-bottom-color: --tf-light;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--tf-light);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--tf-light);
 }
 .tf-border-x {
-		border-left-width: 1px;
-		border-left-style: solid;
-		border-left-color: --tf-light;
-		border-right-width: 1px;
-		border-right-style: solid;
-		border-right-color: --tf-light;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: var(--tf-light);
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: var(--tf-light);
 }
 
 /**
   * Generate CSS Border colors
-  * Loop through border-colors to generate classes
+  * Loop through $border-colors to generate classes
   * Classes will be usable like .tf-border-{border-color-name}
   * Example: <div class"tf-border-primary"></div>
   *
   * Generated class would look like:
   * .tf-border-primary {
-  *     border-color: --tf-primary !important;
+  *     border-color: var(--tf-primary) !important;
   * }
   */
 .tf-border-primary {
-		border-color: --tf-primary !important;
+  border-color: var(--tf-primary) !important;
 }
-.tf-border-secodary {
-		border-color: --tf-secodary !important;
+.tf-border-secondary {
+  border-color: --tf-secondary !important;
 }
 .tf-border-success {
-		border-color: --tf-success !important;
+  border-color: --tf-success !important;
 }
-.tf-border-dander {
-		border-color: --tf-dander !important;
+.tf-border-danger {
+  border-color: --tf-danger !important;
 }
 .tf-border-info {
-		border-color: --tf-info !important;
+  border-color: --tf-info !important;
 }
 .tf-border-warning {
-		border-color: --tf-warning !important;
+  border-color: --tf-warning !important;
 }
 .tf-border-dark {
-		border-color: --tf-dark !important;
+  border-color: --tf-dark !important;
 }
 .tf-border-light {
-		border-color: --tf-light !important;
+  border-color: var(--tf-light) !important;
 }
 
 .tf-glass-1 {
-		background: rgba(83, 98, 114, 0.15) !important;
-		-webkit-backdrop-filter: blur(5px);
-		backdrop-filter: blur(5px);
+  background: rgba(83, 98, 114, 0.15) !important;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 .tf-glass-2 {
-		background: rgba(83, 98, 114, 0.2) !important;
-		-webkit-backdrop-filter: blur(7px);
-		backdrop-filter: blur(7px);
+  background: rgba(83, 98, 114, 0.2) !important;
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
 }
 .tf-glass-3 {
-		background: rgba(83, 98, 114, 0.25) !important;
-		-webkit-backdrop-filter: blur(9px);
-		backdrop-filter: blur(9px);
+  background: rgba(83, 98, 114, 0.25) !important;
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
 }
 .tf-glass-4 {
-		background: rgba(83, 98, 114, 0.3) !important;
-		-webkit-backdrop-filter: blur(7px);
-		backdrop-filter: blur(7px);
+  background: rgba(83, 98, 114, 0.3) !important;
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
 }
 .tf-glass-5 {
-		background: rgba(83, 98, 114, 0.45) !important;
-		-webkit-backdrop-filter: blur(9px);
-		backdrop-filter: blur(9px);
+  background: rgba(83, 98, 114, 0.45) !important;
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
 }
 .tf-glass-6 {
-		background: rgba(83, 98, 114, 0.4) !important;
-		-webkit-backdrop-filter: blur(11px);
-		backdrop-filter: blur(11px);
+  background: rgba(83, 98, 114, 0.4) !important;
+  -webkit-backdrop-filter: blur(11px);
+  backdrop-filter: blur(11px);
 }
 .tf-glass-7 {
-		background: rgba(83, 98, 114, 0.55) !important;
-		-webkit-backdrop-filter: blur(13px);
-		backdrop-filter: blur(13px);
+  background: rgba(83, 98, 114, 0.55) !important;
+  -webkit-backdrop-filter: blur(13px);
+  backdrop-filter: blur(13px);
 }
 .tf-glass-8 {
-		background: rgba(83, 98, 114, 0.6) !important;
-		-webkit-backdrop-filter: blur(15px);
-		backdrop-filter: blur(15px);
+  background: rgba(83, 98, 114, 0.6) !important;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
 }
 .tf-glass-9 {
-		background: rgba(83, 98, 114, 0.65) !important;
-		-webkit-backdrop-filter: blur(16px);
-		backdrop-filter: blur(16px);
+  background: rgba(83, 98, 114, 0.65) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 }
 .tf-glass-10 {
-		background: rgba(83, 98, 114, 0.7) !important;
-		-webkit-backdrop-filter: blur(17px);
-		backdrop-filter: blur(17px);
+  background: rgba(83, 98, 114, 0.7) !important;
+  -webkit-backdrop-filter: blur(17px);
+  backdrop-filter: blur(17px);
 }
 
 /*# sourceMappingURL=index.css.map */

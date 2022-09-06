@@ -1,13 +1,23 @@
-$sizes: (
+$points: (
+  0,
   5,
   10,
   20,
   30,
+  35,
+  37,
   40,
+  41,
+  42,
+  43,
+  44,
+  45,
   50,
   60,
   70,
+  75,
   80,
+  85,
   90,
   100,
   120,
@@ -15,23 +25,166 @@ $sizes: (
   160,
   180,
   200,
-  300
+  250,
+  260,
+  270,
+  300,
+  320,
+  340,
+  360,
+  380,
+  400,
+  500,
+  550,
+  600,
+  700,
+  800,
+  900
 );
+
+$sizes: ("xs", "sm", "md", "lg", "xl");
+
 //
-@mixin set-size($size: 5, $pref: "h", $type: "height", $unit: "px") {
-  .tf {
-    &-#{$pref} {
-      &-#{$size} {
-        #{$type}: #{$size}#{$unit} !important;
+@mixin set-point(
+  $global-prefix: "",
+  $point: 5,
+  $pref: "h",
+  $type: "height",
+  $unit: "px"
+) {
+  .tf#{$global-prefix} {
+    @if $unit == "%" or $unit == "vh" or $unit == "vw" {
+      @if $point <= 100 {
+        &-#{$pref} {
+          &-#{$point} {
+            #{$type}: #{$point}#{$unit};
+          }
+          &-#{$point}.tf-important {
+            #{$type}: #{$point}#{$unit} !important;
+          }
+        }
+      }
+    } @else {
+      &-#{$pref} {
+        &-#{$point} {
+          #{$type}: #{$point}#{$unit};
+        }
+        &-#{$point}.tf-important {
+          #{$type}: #{$point}#{$unit} !important;
+        }
       }
     }
   }
 }
 
-/*
+$def: 16;
+
+.tf-fit {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@mixin load-sizes($prefix: "") {
+  /**
+* Width By sizes
+*/
+  .tf#{$prefix} {
+    @each $size in $sizes {
+      $def: ($def + 4.1);
+
+      &-w-#{$size} {
+        width: #{$def}rem;
+      }
+      &-w-#{$size}.tf-important {
+        width: #{$def}rem !important;
+      }
+    }
+  }
+
+  /**
+* Min Width By point
+*/
+  .tf#{$prefix} {
+    @each $size in $sizes {
+      $def: ($def + 4.1);
+
+      &-min-w-#{$size} {
+        min-width: #{$def}rem;
+      }
+      &-min-w-#{$size}.tf-important {
+        min-width: #{$def}rem !important;
+      }
+    }
+  }
+
+  /**
+* Max Width By point
+*/
+  .tf#{$prefix} {
+    @each $size in $sizes {
+      $def: ($def + 4.1);
+
+      &-max-w-#{$size} {
+        max-width: #{$def}rem;
+      }
+      &-max-w-#{$size}.tf-important {
+        max-width: #{$def}rem !important;
+      }
+    }
+  }
+
+  /**
+* Height By point
+*/
+  .tf#{$prefix} {
+    @each $size in $sizes {
+      $def: ($def + 4.1);
+
+      &-h-#{$size} {
+        height: #{$def}rem;
+      }
+      &-h-#{$size}.tf-important {
+        height: #{$def}rem !important;
+      }
+    }
+  }
+
+  /**
+* Min Height By point
+*/
+  .tf#{$prefix} {
+    @each $size in $sizes {
+      $def: ($def + 4.1);
+
+      &-min-h-#{$size} {
+        min-height: #{$def}rem;
+      }
+      &-min-h-#{$size}.tf-important {
+        min-height: #{$def}rem !important;
+      }
+    }
+  }
+
+  /**
+* Max Height By point
+*/
+  .tf#{$prefix} {
+    @each $size in $sizes {
+      $def: ($def + 4.1);
+
+      &-max-h-#{$size} {
+        max-height: #{$def}rem;
+      }
+      &-max-h-#{$size}.tf-important {
+        max-height: #{$def}rem !important;
+      }
+    }
+  }
+
+  /*
   * Generate heights
-  * Loop through sizes to generate classes
-  * Classes will be usable like .tf-h-{size}
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-h-{point}
   * Example: <div class"tf-h-100"></div>
   *
   * Generated class would look like:
@@ -39,14 +192,18 @@ $sizes: (
   *     height: 100px !important;
   * }
   */
-@each $size in $sizes {
-  @include set-size($size, "h", $type: "height");
-}
+  @each $point in $points {
+    @include set-point($prefix, $point, "h", $type: "height");
+  }
 
-/*
+  .tf#{$prefix}-h-full {
+    height: 100% !important;
+  }
+
+  /*
   * Generate min-heights
-  * Loop through sizes to generate classes
-  * Classes will be usable like .tf-min-h-{size}
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-min-h-{point}
   * Example: <div class"tf-min-h-100"></div>
   *
   * Generated class would look like:
@@ -54,14 +211,84 @@ $sizes: (
   *     min-height: 100px !important;
   * }
   */
-@each $size in $sizes {
-  @include set-size($size, "min-h", $type: "min-height");
-}
+  @each $point in $points {
+    @include set-point($prefix, $point, "min-h", $type: "min-height");
+  }
 
-/*
+  /*
+  * Generate max-heights
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-max-h-{point}
+  * Example: <div class"tf-max-h-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-max-h-100 {
+  *     max-height: 100px !important;
+  * }
+  */
+  @each $point in $points {
+    @include set-point($prefix, $point, "min-h", $type: "min-height");
+  }
+
+  .tf#{$prefix}-min-h-full {
+    min-height: 100% !important;
+  }
+
+  /*
+  * Generate heights based on percent
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-percent-h-{point}
+  * Example: <div class"tf-percent-h-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-percent-h-100 {
+  *     height: 100vh !important;
+  * }
+  */
+  @each $point in $points {
+    @include set-point(
+      $prefix,
+      $point,
+      "percent-h",
+      $type: "height",
+      $unit: "%"
+    );
+  }
+
+  /*
+  * Generate min-heights based on percent
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-percent-h-{point}
+  * Example: <div class"tf-min-percent-h-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-min-percent-h-100 {
+  *     min-height: 100vh !important;
+  * }
+  */
+  @each $point in $points {
+    @include set-point(
+      $prefix,
+      $point,
+      "min-percent-h",
+      $type: "min-height",
+      $unit: "%"
+    );
+  }
+  @each $point in $points {
+    @include set-point(
+      $prefix,
+      $point,
+      "max-percent-h",
+      $type: "max-height",
+      $unit: "%"
+    );
+  }
+
+  /*
   * Generate heights based on the viewport
-  * Loop through sizes to generate classes
-  * Classes will be usable like .tf-view-h-{size}
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-view-h-{point}
   * Example: <div class"tf-view-h-100"></div>
   *
   * Generated class would look like:
@@ -69,14 +296,14 @@ $sizes: (
   *     height: 100vh !important;
   * }
   */
-@each $size in $sizes {
-  @include set-size($size, "view-h", $type: "height", $unit: "vh");
-}
+  @each $point in $points {
+    @include set-point($prefix, $point, "view-h", $type: "height", $unit: "vh");
+  }
 
-/*
+  /*
   * Generate min-heights based on the viewport
-  * Loop through sizes to generate classes
-  * Classes will be usable like .tf-view-h-{size}
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-view-h-{point}
   * Example: <div class"tf-min-view-h-100"></div>
   *
   * Generated class would look like:
@@ -84,14 +311,20 @@ $sizes: (
   *     min-height: 100vh !important;
   * }
   */
-@each $size in $sizes {
-  @include set-size($size, "min-view-h", $type: "min-height", $unit: "vh");
-}
+  @each $point in $points {
+    @include set-point(
+      $prefix,
+      $point,
+      "min-view-h",
+      $type: "min-height",
+      $unit: "vh"
+    );
+  }
 
-/*
+  /*
   * Generate Widths
-  * Loop through sizes to generate classes
-  * Classes will be usable like .tf-w-{size}
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-w-{point}
   * Example: <div class"tf-w-100"></div>
   *
   * Generated class would look like:
@@ -99,14 +332,18 @@ $sizes: (
   *     widht: 100px !important;
   * }
   */
-@each $size in $sizes {
-  @include set-size($size, "w", $type: "width");
-}
+  @each $point in $points {
+    @include set-point($prefix, $point, "w", $type: "width");
+  }
 
-/*
+  .tf#{$prefix}-w-full {
+    width: 100% !important;
+  }
+
+  /*
   * Generate min-widths
-  * Loop through sizes to generate classes
-  * Classes will be usable like .tf-min-w-{size}
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-min-w-{point}
   * Example: <div class"tf-min-w-100"></div>
   *
   * Generated class would look like:
@@ -114,14 +351,84 @@ $sizes: (
   *     min-width: 100px !important;
   * }
   */
-@each $size in $sizes {
-  @include set-size($size, "min-w", $type: "min-width");
-}
+  @each $point in $points {
+    @include set-point($prefix, $point, "min-w", $type: "min-width");
+  }
 
-/*
+  /*
+  * Generate max-widths
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-max-w-{point}
+  * Example: <div class"tf-max-w-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-max-w-100 {
+  *     max-width: 100px !important;
+  * }
+  */
+  @each $point in $points {
+    @include set-point($prefix, $point, "max-w", $type: "max-width");
+  }
+
+  .tf#{$prefix}-min-w-full {
+    min-width: 100% !important;
+  }
+
+  /*
+  * Generate widths based on percentage
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-percent-w-{point}
+  * Example: <div class"tf-percent-w-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-percent-w-100 {
+  *     width: 100% !important;
+  * }
+  */
+  @each $point in $points {
+    @include set-point(
+      $prefix,
+      $point,
+      "percent-w",
+      $type: "width",
+      $unit: "%"
+    );
+  }
+
+  /*
+  * Generate min-widths based on percentage
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-percent-w-{point}
+  * Example: <div class"tf-min-percent-w-100"></div>
+  *
+  * Generated class would look like:
+  * .tf-min-percent-w-100 {
+  *     min-width: 100% !important;
+  * }
+  */
+  @each $point in $points {
+    @include set-point(
+      $prefix,
+      $point,
+      "min-percent-w",
+      $type: "min-width",
+      $unit: "%"
+    );
+  }
+  @each $point in $points {
+    @include set-point(
+      $prefix,
+      $point,
+      "max-percent-w",
+      $type: "max-width",
+      $unit: "%"
+    );
+  }
+
+  /*
   * Generate widths based on the viewport
-  * Loop through sizes to generate classes
-  * Classes will be usable like .tf-view-w-{size}
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-view-w-{point}
   * Example: <div class"tf-view-w-100"></div>
   *
   * Generated class would look like:
@@ -129,14 +436,14 @@ $sizes: (
   *     width: 100vw !important;
   * }
   */
-@each $size in $sizes {
-  @include set-size($size, "view-w", $type: "width", $unit: "vw");
-}
+  @each $point in $points {
+    @include set-point($prefix, $point, "view-w", $type: "width", $unit: "vw");
+  }
 
-/*
+  /*
   * Generate min-widths based on the viewport
-  * Loop through sizes to generate classes
-  * Classes will be usable like .tf-view-w-{size}
+  * Loop through $points to generate classes
+  * Classes will be usable like .tf-view-w-{point}
   * Example: <div class"tf-min-view-w-100"></div>
   *
   * Generated class would look like:
@@ -144,6 +451,95 @@ $sizes: (
   *     min-width: 100vw !important;
   * }
   */
-@each $size in $sizes {
-  @include set-size($size, "min-view-w", $type: "min-width", $unit: "vw");
+  @each $point in $points {
+    @include set-point(
+      $prefix,
+      $point,
+      "min-view-w",
+      $type: "min-width",
+      $unit: "vw"
+    );
+  }
+
+  @each $point in $points {
+    @include set-point(
+      $prefix,
+      $point,
+      "max-view-w",
+      $type: "max-width",
+      $unit: "vw"
+    );
+  }
+
+  // max-width: 576px
+  @include tablet-up {
+    .tf-xs {
+      &-w-full {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Sizing
+*/
+@include load-sizes($prefix: "");
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Sizing on Extra Large Screen
+*
+*/
+@include large-screen {
+  @include load-sizes($prefix: "-xl");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Sizing on Large Screen
+*
+*/
+@include desktop-up {
+  @include load-sizes($prefix: "-lg");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Sizing on Tablets Screens
+*
+*/
+@include tablet-up {
+  @include load-sizes($prefix: "-md");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Sizing on Mobile Screen
+*
+*/
+@include mobile-up {
+  @include load-sizes($prefix: "-sm");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Sizing on Tiny Screens
+*
+*/
+@include tiny-screen {
+  @include load-sizes($prefix: "-xs");
 }

@@ -1,0 +1,28 @@
+$overflows: (scroll, auto, hidden, overlay, visible, unset);
+
+/**
+  * Css overflow classes
+**/
+.tf {
+  @each $action in $overflows {
+    &-overflow-#{$action} {
+      overflow: $action;
+    }
+  }
+}
+
+.tf {
+  @each $action in $overflows {
+    &-overflow-y-#{$action} {
+      overflow-y: $action;
+    }
+  }
+}
+
+.tf {
+  @each $action in $overflows {
+    &-overflow-x-#{$action} {
+      overflow-x: $action;
+    }
+  }
+}

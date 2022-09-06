@@ -1,40 +1,208 @@
-@mixin glass($opacity, $blur) {
-  background: rgba(83, 98, 114, $opacity) !important;
+@use "sass:string";
+@use "sass:map";
+@use "sass:color";
+@use "sass:math";
+
+$colors: (
+  "primary",
+  "secondary",
+  "success",
+  "danger",
+  "info",
+  "warning",
+  "dark",
+  "grey",
+  "light",
+  "blue",
+  "blue-2",
+  "light-blue",
+  "green",
+  "green-2",
+  "light-green",
+  "red",
+  "red-2",
+  "light-red",
+  "pink",
+  "pink-2",
+  "orange",
+  "orange-2",
+  "yellow",
+  "yellow-2",
+  "light-yellow",
+  "perfect-red",
+  "perfect-tan",
+  "perfect-yellow",
+  "perfect-pink",
+  "perfect-mustard",
+  "perfect-dark-orange",
+  "perfect-tan-grey",
+  "perfect-grey",
+  "perfect-black",
+  "perfect-orange",
+  "perfect-brown",
+  "perfect-ox-blood",
+  "perfect-green"
+);
+
+$opacities: 0.15, 0.2, 0.25, 0.3, 0.45, 0.4, 0.55, 0.6, 0.65, 0.7;
+
+@mixin glass($opacity, $blur, $color: null) {
+  @if $color {
+    background: rgba($color, $opacity) !important;
+  } @else {
+    background: rgba(83, 98, 114, $opacity) !important;
+  }
   -webkit-backdrop-filter: blur($blur);
   backdrop-filter: blur($blur);
 }
 
+@mixin glass-loader($prefix: "", $color: null) {
+  .tf {
+    &-glass#{$prefix} {
+      $i: 0;
+      $blur: 5;
+      @each $opacity in $opacities {
+        $i: $i + 1;
+        @if $i > 1 {
+          $blur: $blur + 2;
+        }
+        &-#{$i} {
+          @include glass($opacity, #{$blur}px, $color);
+        }
+      }
+    }
+  }
+}
+
+@include glass-loader;
+$i: 0;
+@each $color in $true-colors {
+  $get-color: map-get($color-map, $color);
+  @if $get-color != null {
+    @include glass-loader(-#{$color}, $get-color);
+  }
+}
+
+/**
+  * Generate CSS Button Colors
+  * Loop through $colors to generate classes
+  * Classes will be usable like .tf-btn-{$color}
+  * Example: <div class"tf-btn-primary"></div>
+  *
+  * Generated class would look like:
+  * .tf-btn-primary {
+  *    font-size: 15px;
+  *    font-family: Arial;
+  *    width: auto;
+  *    height: auto;
+  *    color: #fff;
+  *    font-weight: bold;
+  * }
+  */
 .tf {
-  &-glass {
-    &-1 {
-      @include glass(0.15, 5px);
+  &-gr {
+    @each $color in $colors {
+      @each $color2 in $colors {
+        @if $color != $color2 {
+          &-#{$color}-#{$color2} {
+            background: linear-gradient(
+              172deg,
+              var(--tf-#{$color}),
+              var(--tf-#{$color2})
+            ) !important;
+          }
+        }
+      }
     }
-    &-2 {
-      @include glass(0.2, 7px);
+  }
+}
+
+/**
+  * Generate CSS Background colors
+  * Loop through $colors to generate classes
+  * Classes will be usable like .tf-bg-{$color}
+  * Example: <div class"tf-bg-primary"></div>
+  *
+  * Generated class would look like:
+  * .tf-bg-primary {
+  *     background-color: var(--tf-primary) !important;
+  * }
+  */
+.tf {
+  &-bg {
+    @each $color in $more-colors {
+      &-#{$color} {
+        background-color: var(--tf-#{$color}) !important;
+      }
+
+      &-#{$color}.tf-hover:hover {
+        $get-color: map-get($color-map, $color);
+        @if $get-color != null {
+          color: darken($get-color, 15%) !important;
+        }
+      }
     }
-    &-3 {
-      @include glass(0.25, 9px);
+
+    @each $color in $true-colors {
+      $i: 0;
+      $get-color: map-get($color-map, $color);
+      @each $loopable in $loopables {
+        $i: $i + 1;
+        // $col: ($i * 100)/35;
+        $col: math.div($i * 100, 35);
+        $new-color: darken($get-color, $col * 1%);
+        $light-color: lighten($get-color, $col * 1%);
+        $dash: "-";
+        @if $i == 1 {
+          $dash: "--";
+        }
+        &-#{$color}#{$loopable} {
+          background-color: #{$new-color} !important;
+        }
+        &-#{$color}#{$dash}#{$loopable} {
+          background-color: #{$light-color} !important;
+        }
+
+        @if $get-color != null {
+          &-#{$color}#{$loopable}.tf-hover:hover {
+            color: lighten($new-color, 10%) !important;
+          }
+          &-#{$color}#{$dash}#{$loopable}.tf-hover:hover {
+            color: darken($new-color, 0.1%) !important;
+          }
+        }
+      }
     }
-    &-4 {
-      @include glass(0.3, 7px);
-    }
-    &-5 {
-      @include glass(0.45, 9px);
-    }
-    &-6 {
-      @include glass(0.4, 11px);
-    }
-    &-7 {
-      @include glass(0.55, 13px);
-    }
-    &-8 {
-      @include glass(0.6, 15px);
-    }
-    &-9 {
-      @include glass(0.65, 16px);
-    }
-    &-10 {
-      @include glass(0.7, 17px);
+  }
+
+  $colors: map.remove(
+    $color-map,
+    "success",
+    "primary",
+    "secondary",
+    "info",
+    "warning",
+    "dark",
+    "danger",
+    "light"
+  );
+  @each $color in map.keys($colors) {
+    @if string.index($color, "-") == null {
+      &-#{$color} {
+        background-color: map-get($color-map, $color) !important;
+      }
+      $color_: color.adjust(map-get($color-map, $color), $lightness: 10%);
+
+      @for $num from 1 to 11 {
+        // $qty: ((25 * $num) / 11);
+        $qty: math.div(25 * $num, 11);
+        &-#{$color}-#{$num} {
+          background-color: color.adjust(
+            $color_,
+            $lightness: -$qty * 1%
+          ) !important;
+        }
+      }
     }
   }
 }

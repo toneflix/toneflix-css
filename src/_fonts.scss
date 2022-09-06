@@ -1,26 +1,107 @@
 @font-face {
   font-family: "Signika";
-  src: url(./utility/src/Signika.ttf);
+  src: url(./utility/fonts/Signika.ttf);
+}
+@font-face {
+  font-family: "Anton";
+  src: url(./utility/fonts/Anton-Regular.ttf);
 }
 
+@font-face {
+  font-family: "Hero";
+  src: url(./utility/fonts/Hero.otf);
+}
+
+@font-face {
+  font-family: "Hero-Light";
+  src: url(./utility/fonts/Hero-Light.otf);
+}
+
+@mixin font-sizes($prefix: "") {
+  .tf-text#{$prefix} {
+    &-1 {
+      font-size: 0.75rem;
+      line-height: 1rem;
+    }
+    &-2 {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+    &-3 {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+    &-4 {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+    &-5 {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+    &-6 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    &-7 {
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
+    &-8 {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
+    &-9 {
+      font-size: 3rem;
+      line-height: 1;
+    }
+    &-10 {
+      font-size: 3.75rem;
+      line-height: 1;
+    }
+    &-11 {
+      font-size: 4.5rem;
+      line-height: 1;
+    }
+    &-12 {
+      font-size: 6rem;
+      line-height: 1;
+    }
+    &-13 {
+      font-size: 8rem;
+      line-height: 1;
+    }
+  }
+}
+/**
+  * Font Sizes
+  * These utilities handle font sizing and are based on a 0.6 to 6.1 EM scale
+  */
 .tf {
   &-font {
     &-signika {
       font-family: "Signika";
     }
-
-    /**
-  * Font Sizes
-  * These utilities handle font sizing and are based on a 0.6 to 6.1 EM scale
-  */
+    &-anton {
+      font-family: "Anton";
+    }
+    &-hero {
+      font-family: "Hero";
+    }
+    &-hero-light {
+      font-family: "Hero-Light";
+    }
     &-xxs {
       font-size: 0.5em;
+      line-height: 0.7em;
     }
     &-xs {
       font-size: 0.8em;
+      line-height: 1em;
     }
     &-sm {
       font-size: 1.1em;
+      line-height: 1.3em;
     }
     &-md {
       font-size: 2.1em;
@@ -37,11 +118,15 @@
     &-2xl {
       font-size: 6.1em;
     }
+  }
+}
 
-    /**
+/**
   * Font Weight
   * These utilities handle font weigthing.
   */
+.tf {
+  &-font {
     &-bold {
       font-weight: 700;
     }
@@ -122,25 +207,95 @@
   */
       &-xxs {
         font-size: 0.2em;
+        line-height: 1.33;
       }
       &-xs {
         font-size: 0.3em;
+        line-height: 1.33;
       }
       &-sm {
         font-size: 0.6em;
+        line-height: 1.33;
       }
       &-md {
         font-size: 1.2em;
+        line-height: 1.33;
       }
       &-lg {
         font-size: 1.6em;
+        line-height: 1.33;
       }
       &-xl {
         font-size: 2em;
+        line-height: 1.33;
       }
       &-xxl {
         font-size: 3em;
+        line-height: 1.33;
       }
     }
   }
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for setting font size
+*/
+@include font-sizes($prefix: "");
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for setting font size on Extra Large Screen
+*
+*/
+@include large-screen {
+  @include font-sizes($prefix: "-xl");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for setting font size on Large Screen
+*
+*/
+@include desktop-up {
+  @include font-sizes($prefix: "-lg");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for setting font size on Tablets Screens
+*
+*/
+@include tablet-up {
+  @include font-sizes($prefix: "-md");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for setting font size on Mobile Screen
+*
+*/
+@include mobile-up {
+  @include font-sizes($prefix: "-sm");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for setting font size on Tiny Screens
+*
+*/
+@include tiny-screen {
+  @include font-sizes($prefix: "-xs");
 }

@@ -1,0 +1,39 @@
+$sizes: 1.1, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1;
+
+@mixin grow-loader($size: 1.2, $prefix: "") {
+  &-grow#{$prefix} {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(#{$size});
+      z-index: 2000;
+      box-shadow: 0 3px 5px -1px rgba(242, 112, 151, 0.2),
+        0 5px 8px rgba(242, 112, 151, 0.2), 0 1px 14px rgba(242, 112, 151, 0.2);
+    }
+  }
+}
+
+/**
+  * Transform elements on hover
+  */
+.tf {
+  @include grow-loader($size: 1.2, $prefix: "");
+
+  $i: 0;
+  @each $size in $sizes {
+    $i: $i + 1;
+    @include grow-loader($size, -#{$i});
+  }
+
+  $i: 0;
+  @each $color in $true-colors {
+    $get-color: map-get($color-map, $color);
+
+    &-grow-#{$color}:hover {
+      @if $get-color != null {
+        box-shadow: 0 3px 5px -1px rgba($get-color, 0.2),
+          0 5px 8px rgba($get-color, 0.2), 0 1px 14px rgba($get-color, 0.2);
+      }
+    }
+  }
+}

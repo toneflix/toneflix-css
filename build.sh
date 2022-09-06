@@ -43,7 +43,7 @@ then
     exit
 fi
 
-# Loop through parameters and restructure
+# Loop through $parameters and restructure
 for opt in $@
 do
   if [[ "$opt" == "--help" || "$opt" == "-h" ]]; then

@@ -1,7 +1,5 @@
 $radiuses: 4px, 8px, 15px, 18px, 24px, 28px, 50%, unset;
-$borders-sizes: 2, 3, 4, 5, 6, 7, 8, 9, 10;
-
-$border-colors: (
+$colors: (
   "primary",
   "secondary",
   "success",
@@ -21,20 +19,7 @@ $border-colors: (
   "orange",
   "orange-2",
   "yellow",
-  "yellow-2",
-  "perfect-red",
-  "perfect-tan",
-  "perfect-yellow",
-  "perfect-pink",
-  "perfect-mustard",
-  "perfect-dark-orange",
-  "perfect-tan-grey",
-  "perfect-grey",
-  "perfect-black",
-  "perfect-orange",
-  "perfect-brown",
-  "perfect-ox-blood",
-  "perfect-green"
+  "yellow-2"
 );
 
 @mixin pre-radius($radius: 4px, $index: "", $prefix: "", $imp: null) {
@@ -101,113 +86,78 @@ $border-colors: (
     @if $radius == unset {
       $index: "-unset";
     }
-    .tf {
+    .tf-btn {
       @include pre-radius($radius, $index, $prefix, $imp);
     }
   }
 }
 
 /**
-* CSS Border utilities
-*/
+  * Generate CSS Buttons
+  * Loop through $colors to generate classes
+  * Classes will be usable like .tf-btn-{$color}
+  * Example: <div class"tf-btn"></div>
+  *
+  * Generated class would look like:
+  * .tf-btn {
+  *    font-size: 15px;
+  *    font-family: Arial;
+  *    width: auto;
+  *    height: auto;
+  *    color: #fff;
+  *    font-weight: bold;
+  *    background-color: var(--tf-light);
+  * }
+  */
 .tf {
-  &-border {
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--tf-light);
+  &-btn {
+    font-size: 15px;
+    font-family: Arial;
+    width: auto;
+    height: auto;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    background-color: var(--tf-light);
 
-    @each $size in $borders-sizes {
-      $i: $size - 1;
-      &-#{$i} {
-        border-width: #{$size}px;
-        border-style: solid;
-        border-color: var(--tf-light);
-      }
+    &:hover {
+      background-color: lighten($tf-light, 7%) !important;
     }
 
-    &-bottom {
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
-      border-bottom-color: var(--tf-light);
-    }
-
-    &-top {
-      border-top-width: 1px;
-      border-top-style: solid;
-      border-top-color: var(--tf-light);
-    }
-
-    &-left {
-      border-left-width: 1px;
-      border-left-style: solid;
-      border-left-color: var(--tf-light);
-    }
-
-    &-right {
-      border-right-width: 1px;
-      border-right-style: solid;
-      border-right-color: var(--tf-light);
-    }
-
-    &-y {
-      border-top-width: 1px;
-      border-top-style: solid;
-      border-top-color: var(--tf-light);
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
-      border-bottom-color: var(--tf-light);
-    }
-
-    &-x {
-      border-left-width: 1px;
-      border-left-style: solid;
-      border-left-color: var(--tf-light);
-      border-right-width: 1px;
-      border-right-style: solid;
-      border-right-color: var(--tf-light);
+    &-block {
+      width: 100% !important;
     }
   }
 }
 
 /**
-  * Generate CSS Border colors
-  * Loop through $border-colors to generate classes
-  * Classes will be usable like .tf-border-{$color}
-  * Example: <div class"tf-border-primary"></div>
+  * Generate CSS Button Colors
+  * Loop through $colors to generate classes
+  * Classes will be usable like .tf-btn-{$color}
+  * Example: <div class"tf-btn-primary"></div>
   *
   * Generated class would look like:
-  * .tf-border-primary {
-  *     border-color: var(--tf-primary) !important;
+  * .tf-btn-primary {
+  *    font-size: 15px;
+  *    font-family: Arial;
+  *    width: auto;
+  *    height: auto;
+  *    color: #fff;
+  *    font-weight: bold;
   * }
   */
 .tf {
-  &-border {
-    &-check[aria-checked="true"],
-    &-check.checked,
-    &-check.active,
-    &-check.selected {
-      border-color: var(--tf-primary) !important;
-    }
-    @each $color in $border-colors {
-      &-#{$color},
-      &-check-#{$color}[aria-checked="true"],
-      &-check-#{$color}.checked,
-      &-check-#{$color}.active,
-      &-check-#{$color}.selected {
-        border-color: var(--tf-#{$color}) !important;
+  &-btn {
+    @each $color in $colors {
+      &-#{$color} {
+        background-color: var(--tf-#{$color}) !important;
       }
-
-      @for $i from 1 through 10 {
-        &-#{$color}-#{$i},
-        &-check-#{$color}-#{$i}[aria-checked="true"],
-        &-check-#{$color}-#{$i}.checked,
-        &-check-#{$color}-#{$i}.active,
-        &-check-#{$color}-#{$i}.selected {
-          $get-color: map-get($color-map, $color);
-          $get-color: lighten($get-color, 30%);
-          @if $get-color != null {
-            border-color: darken($get-color, 2% * $i) !important;
-          }
+      &-#{$color}:hover {
+        $get-color: map-get($color-map, $color);
+        // @debug $color, $get-color;
+        @if $get-color != null {
+          background-color: lighten($get-color, 7%) !important;
         }
       }
     }
@@ -227,7 +177,7 @@ $border-colors: (
 * ==================================
 * ==================================
 *
-* Utilities for Borders on Extra Large Screen
+* Utilities for Button Borders on Extra Large Screen
 *
 */
 @include large-screen("min-width") {
@@ -239,7 +189,7 @@ $border-colors: (
 * ==================================
 * ==================================
 *
-* Utilities for Borders on Large Screen
+* Utilities for Button Borders on Large Screen
 *
 */
 @include desktop-up("min-width") {
@@ -251,7 +201,7 @@ $border-colors: (
 * ==================================
 * ==================================
 *
-* Utilities for Borders on Tablets Screens
+* Utilities for Button Borders on Tablets Screens
 *
 */
 @include tablet-up("min-width") {
@@ -263,7 +213,7 @@ $border-colors: (
 * ==================================
 * ==================================
 *
-* Utilities for Borders on Mobile Screen
+* Utilities for Button Borders on Mobile Screen
 *
 */
 @include mobile-up("min-width") {
@@ -275,7 +225,7 @@ $border-colors: (
 * ==================================
 * ==================================
 *
-* Utilities for Borders on Tiny Screens
+* Utilities for Button Borders on Tiny Screens
 *
 */
 @include tiny-screen("min-width") {

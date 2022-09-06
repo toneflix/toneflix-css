@@ -1,0 +1,36 @@
+$decorations: "dashed", "dotted", "double", "line-through", "overline", "solid",
+  "underline", "wavy";
+
+$cursors: "pointer", "zoom-in", "zoom-out", "not-allowed", "row-resize",
+  "s-resize", "se-resize", "sw-resize", "nw-resize", "ns-resize", "nw-resize",
+  "nwse-resize", "progress", "wait", "text";
+
+/**
+  * Text Decorations
+  */
+.tf {
+  &-no-decoration,
+  &-text-no-decoration {
+    text-decoration: none;
+    color: inherit;
+
+    &:visited,
+    &:active,
+    &:focus,
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  @each $cursor in $cursors {
+    &-cursor-#{$cursor} {
+      cursor: #{$cursor};
+    }
+  }
+
+  @each $decoration in $decorations {
+    &-text-#{$decoration} {
+      text-decoration: #{$decoration};
+    }
+  }
+}

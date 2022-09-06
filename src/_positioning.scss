@@ -1,0 +1,168 @@
+$steps: 0, 2, 4, 6, 8, 10, 20, 25, 30, 40, 50, 60, 65, 70, 80, 90, 100, 120, 130,
+  140, 150, 160, 180, 200, 240, 280, 300, 310, 350, 400, 500, 600, 700, 800, 900,
+  1000;
+
+$z-indexes: 100, 500, 1000, 1500, 2000, 3000, 4000, 5000, 6000, 7000;
+@each $index in $z-indexes {
+  .tf-z#{$index} {
+    z-index: $index;
+  }
+}
+
+@mixin position($side, $negative: false, $prefix: "") {
+  @each $step in $steps {
+    $step-name: $step;
+    @if ($negative == true) {
+      $step-name: -#{$step};
+    }
+    .tf-#{$side}#{$prefix}-#{$step-name} {
+      @if ($negative == true) {
+        #{$side}: -#{$step}px;
+      } @else {
+        #{$side}: #{$step}px;
+      }
+    }
+  }
+}
+
+@mixin load-position($prefix: "") {
+  /*
+  * Element #{$prefix} positioning
+  * Classes will be usable like .tf-absolute#{$prefix}
+  * Example: <div class"tf-absolute#{$prefix}"></div>
+  *
+  */
+  .tf-absolute#{$prefix} {
+    position: absolute;
+  }
+  .tf-relative#{$prefix} {
+    position: relative;
+  }
+  .tf-fixed#{$prefix} {
+    position: fixed;
+  }
+  .tf-static#{$prefix} {
+    position: static;
+  }
+  .tf-sticky#{$prefix} {
+    position: sticky;
+  }
+
+  /*
+  * Element #{$prefix} display
+  * Classes will be usable like .tf-block#{$prefix}
+  * Example: <div class"tf-block#{$prefix}"></div>
+  *
+  */
+  .tf-block#{$prefix} {
+    display: block;
+  }
+  .tf-inline-block#{$prefix} {
+    position: inline-block;
+  }
+  .tf-inline#{$prefix} {
+    display: inline;
+  }
+  .tf-flex#{$prefix} {
+    display: flex;
+  }
+  .tf-inline-flex#{$prefix} {
+    position: inline-flex;
+  }
+  .tf-contents#{$prefix} {
+    display: contents;
+  }
+
+  /*
+  * Generate #{$prefix} positioning
+  * Classes will be usable like .tf-left#{$prefix}-10
+  * Example: <div class"tf-left#{$prefix}-10"></div>
+  *
+  * Generated class would look like:
+  * .tf-left#{$prefix}-10 {
+  *     left: 10px;
+  * }
+  */
+  @include position("top", false, $prefix);
+  @include position("right", false, $prefix);
+  @include position("bottom", false, $prefix);
+  @include position("left", false, $prefix);
+
+  /*
+  * Generate negative #{$prefix} positioning
+  * Classes will be usable like .tf-left#{$prefix}--10
+  * Example: <div class"tf-left#{$prefix}--10"></div>
+  *
+  * Generated class would look like:
+  * .tf-left#{$prefix}--10 {
+  *     left: -10px;
+  * }
+  */
+  @include position("top", true, $prefix);
+  @include position("bottom", true, $prefix);
+  @include position("left", true, $prefix);
+  @include position("right", true, $prefix);
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Positining
+*/
+@include load-position($prefix: "");
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Positining on Extra Large Screen
+*
+*/
+@include large-screen("min-width") {
+  @include load-position($prefix: "-xl");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Positining on Large Screen
+*
+*/
+@include desktop-up("min-width") {
+  @include load-position($prefix: "-lg");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Positining on Tablets Screens
+*
+*/
+@include tablet-up("min-width") {
+  @include load-position($prefix: "-md");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Positining on Mobile Screen
+*
+*/
+@include mobile-up("min-width") {
+  @include load-position($prefix: "-sm");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Positining on Tiny Screens
+*
+*/
+@include tiny-screen("min-width") {
+  @include load-position($prefix: "-xs");
+}

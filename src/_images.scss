@@ -1,0 +1,50 @@
+$fits: "contain", "cover", "fill", "scale-down", "none";
+$positions: "bottom", "center", "left", "right", "top";
+
+@mixin image-loader {
+  .tf-image {
+    @each $fit in $fits {
+      &-#{$fit} {
+        object-fit: #{$fit};
+      }
+    }
+
+    @each $position in $positions {
+      &-#{$position} {
+        object-position: #{$position};
+
+        @each $reposition in $positions {
+          &-#{$reposition} {
+            object-position: #{$reposition} #{$position};
+          }
+        }
+      }
+    }
+  }
+}
+
+@include image-loader();
+
+@mixin bg-loader {
+  .tf-bg {
+    @each $fit in $fits {
+      &-#{$fit} {
+        background-size: #{$fit};
+      }
+    }
+
+    @each $position in $positions {
+      &-#{$position} {
+        background-position: #{$position};
+
+        @each $reposition in $positions {
+          &-#{$reposition} {
+            background-position: #{$reposition} #{$position};
+          }
+        }
+      }
+    }
+  }
+}
+
+@include bg-loader();

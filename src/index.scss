@@ -1,31 +1,33 @@
-@mixin large-screen {
-  @media only screen and (max-width: 1200px) {
+@mixin large-screen($unit: "max-width") {
+  @media only screen and (#{$unit}: 1200px) {
     @content;
   }
 }
 
-@mixin desktop-up {
-  @media only screen and (max-width: 992px) {
+@mixin desktop-up($unit: "max-width") {
+  @media only screen and (#{$unit}: 992px) {
     @content;
   }
 }
 
-@mixin tablet-up {
-  @media only screen and (max-width: 768px) {
+@mixin tablet-up($unit: "max-width") {
+  @media only screen and (#{$unit}: 768px) {
     @content;
   }
 }
 
-@mixin mobile-up {
-  @media only screen and (max-width: 576px) {
+@mixin mobile-up($unit: "max-width") {
+  @media only screen and (#{$unit}: 576px) {
     @content;
   }
 }
 
-@mixin tiny-screen {
-  @media only screen and (max-width: 360px) {
+@mixin tiny-screen($unit: "max-width") {
+  @media only screen and (#{$unit}: 360px) {
     @content;
   }
 }
 
-@import "colors", "size", "fonts", "borders", "background";
+@import "reset", "colors", "size", "spacing", "optimize", "fonts", "buttons",
+  "borders", "background", "transformation", "positioning", "shadows", "feel",
+  "images", "grid";

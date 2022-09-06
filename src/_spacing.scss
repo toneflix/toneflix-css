@@ -1,0 +1,431 @@
+@mixin load-fonts($prefix: "") {
+  $sizes: (
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  );
+
+  /*
+  * Generate Padding
+  * Scope: [a: all, l: left, r: right, t: top, b: bottom, x: leeft-right, y: top-bottom]
+  * Loop through $sizes to generate classes
+  * Classes will be usable like .tf#{$prefix}-p{scope}-{size}
+  * Example: <div class"tf-pa-1"></div>
+  *
+  * Generated class would look like:
+  * .tf#{$prefix}-pa-1 {
+  *     padding: 0.25rem;
+  * }
+  */
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* padding Left-Right Auto
+*/
+  .tf#{$prefix}-px-auto {
+    padding-left: auto;
+    padding-right: auto;
+  }
+
+  /**
+* padding Top-Bottom Auto
+*/
+  .tf#{$prefix}-py-auto {
+    padding-top: auto;
+    padding-bottom: auto;
+  }
+
+  /**
+* Padding All
+*/
+  .tf#{$prefix} {
+    &-pa-0 {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-pa-#{$inc} {
+        padding-top: #{$def}rem;
+        padding-bottom: #{$def}rem;
+        padding-left: #{$def}rem;
+        padding-right: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* Padding Left
+*/
+  .tf#{$prefix} {
+    &-pl-0 {
+      padding-left: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-pl-#{$inc} {
+        padding-left: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* Padding Right
+*/
+  .tf#{$prefix} {
+    &-pr-0 {
+      padding-right: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-pr-#{$inc} {
+        padding-right: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* Padding Left-Right
+*/
+  .tf#{$prefix} {
+    &-px-0 {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-px-#{$inc} {
+        padding-left: #{$def}rem;
+        padding-right: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* Padding Top
+*/
+  .tf#{$prefix} {
+    &-pt-0 {
+      padding-top: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-pt-#{$inc} {
+        padding-top: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* Padding Bottom
+*/
+  .tf#{$prefix} {
+    &-pb-0 {
+      padding-bottom: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-pb-#{$inc} {
+        padding-bottom: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* Padding Top-Bottom
+*/
+  .tf#{$prefix} {
+    &-py-0 {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-py-#{$inc} {
+        padding-top: #{$def}rem;
+        padding-bottom: #{$def}rem;
+      }
+    }
+  }
+
+  /*
+  * Generate margin
+  * Scope: [a: all, l: left, r: right, t: top, b: bottom, x: leeft-right, y: top-bottom]
+  * Loop through $sizes to generate classes
+  * Classes will be usable like .tf#{$prefix}-p{scope}-{size}
+  * Example: <div class"tf-pa-1"></div>
+  *
+  * Generated class would look like:
+  * .tf#{$prefix}-pa-1 {
+  *     margin: 0.25rem;
+  * }
+  */
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* margin Left-Right Auto
+*/
+  .tf#{$prefix}-mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /**
+* margin Top-Bottom Auto
+*/
+  .tf#{$prefix}-my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  /**
+* margin All
+*/
+  .tf#{$prefix} {
+    &-ma-0 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-ma-#{$inc} {
+        margin-top: #{$def}rem;
+        margin-bottom: #{$def}rem;
+        margin-left: #{$def}rem;
+        margin-right: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* margin Left
+*/
+  .tf#{$prefix} {
+    &-ml-0 {
+      margin-left: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-ml-#{$inc} {
+        margin-left: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* margin Right
+*/
+  .tf#{$prefix} {
+    &-mr-0 {
+      margin-right: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-mr-#{$inc} {
+        margin-right: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* margin Left-Right
+*/
+  .tf#{$prefix} {
+    &-mx-0 {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-mx-#{$inc} {
+        margin-left: #{$def}rem;
+        margin-right: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* margin Top
+*/
+  .tf#{$prefix} {
+    &-mt-0 {
+      margin-top: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-mt-#{$inc} {
+        margin-top: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* margin Bottom
+*/
+  .tf#{$prefix} {
+    &-mb-0 {
+      margin-bottom: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-mb-#{$inc} {
+        margin-bottom: #{$def}rem;
+      }
+    }
+  }
+
+  $def: 0;
+  $inc: 0;
+
+  /**
+* margin Top-Bottom
+*/
+  .tf#{$prefix} {
+    &-my-0 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    @each $size in $sizes {
+      $def: ($def + 0.25);
+      $inc: ($inc + 1);
+      &-my-#{$inc} {
+        margin-top: #{$def}rem;
+        margin-bottom: #{$def}rem;
+      }
+    }
+  }
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Spacing
+*/
+@include load-fonts($prefix: "");
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Spacing on Extra Large Screen
+*
+*/
+@include large-screen {
+  @include load-fonts($prefix: "-xl");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Spacing on Large Screen
+*
+*/
+@include desktop-up {
+  @include load-fonts($prefix: "-lg");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Spacing on Tablets Screens
+*
+*/
+@include tablet-up {
+  @include load-fonts($prefix: "-md");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Spacing on Mobile Screen
+*
+*/
+@include mobile-up {
+  @include load-fonts($prefix: "-sm");
+}
+
+/**
+* ==================================
+* ==================================
+*
+* Utilities for Spacing on Tiny Screens
+*
+*/
+@include tiny-screen {
+  @include load-fonts($prefix: "-xs");
+}

@@ -1,3 +1,7 @@
+@use "sass:string";
+@use "sass:map";
+@use "sass:color";
+
 // Main Colors
 $tf-primary: #1976d2;
 $tf-secondary: #26a69a;
@@ -9,8 +13,10 @@ $tf-dark: #1d1d1d;
 $tf-light: #dddcdc;
 
 // Secondary COlors
+$tf-white: rgb(255, 255, 255);
 $tf-blue: rgba(41, 76, 240, 1);
 $tf-blue-2: rgba(41, 152, 240, 1);
+$tf-blue-grey: rgb(241, 245, 249);
 $tf-green: rgba(42, 158, 6, 1);
 $tf-green-2: rgba(116, 206, 17, 1);
 $tf-red: rgba(235, 55, 3, 1);
@@ -21,10 +27,140 @@ $tf-orange: rgba(235, 105, 3, 1);
 $tf-orange-2: rgb(235, 127, 45);
 $tf-yellow: rgb(252, 205, 19);
 $tf-yellow-2: rgb(248, 230, 35);
-$venus: #998099;
+$tf-grey: rgb(199, 194, 194);
+
+$tf-perfect-red: rgb(196, 0, 12);
+$tf-perfect-tan: rgb(252, 212, 179);
+$tf-perfect-yellow: rgb(252, 246, 187);
+$tf-perfect-pink: rgb(242, 146, 182);
+$tf-perfect-mustard: rgb(255, 214, 17);
+$tf-perfect-dark-orange: rgb(255, 87, 0);
+$tf-perfect-tan-grey: rgb(228, 194, 193);
+$tf-perfect-grey: rgb(99, 84, 66);
+$tf-perfect-black: rgb(34, 17, 5);
+$tf-perfect-orange: rgb(253, 121, 0);
+$tf-perfect-brown: rgb(222, 146, 115);
+$tf-perfect-ox-blood: rgb(72, 13, 26);
+$tf-perfect-green: rgb(15, 47, 23);
+
+// Colors Map
+$color-map: (
+  "white": #fff,
+  "primary": #1976d2,
+  "secondary": #26a69a,
+  "success": #21ba45,
+  "danger": #c10015,
+  "info": #31ccec,
+  "warning": #f2c037,
+  "dark": #1d1d1d,
+  "light": #dddcdc,
+  "blue": #103cfd,
+  "blue-2": #057ee0,
+  "blue-grey": #f1f5f9,
+  "green": #36e700,
+  "green-2": #66c005,
+  "red": #eb3703,
+  "red-2": #dd3603,
+  "pink": #e400c2,
+  "pink-2": #d401b5,
+  "orange": #ee6d04,
+  "orange-2": #eb7f2d,
+  "yellow": #ffd013,
+  "yellow-2": #e2cf00,
+  "grey": #eaeaea,
+
+  "perfect-red": #c4000c,
+  "perfect-tan": #fcd4b3,
+  "perfect-yellow": #fcf6bb,
+  "perfect-pink": #f292b6,
+  "perfect-mustard": #ffd611,
+  "perfect-dark-orange": #ff5700,
+  "perfect-tan-grey": #e4c2c1,
+  "perfect-grey": #635442,
+  "perfect-black": #221105,
+  "perfect-orange": #fd7900,
+  "perfect-brown": #de9273,
+  "perfect-ox-blood": #480d1a,
+  "perfect-green": #0f2f17,
+);
+
+$colors: (
+  "primary",
+  "secondary",
+  "success",
+  "danger",
+  "info",
+  "warning",
+  "dark",
+  "light",
+  "blue",
+  "blue-2",
+  "blue-grey",
+  "green",
+  "green-2",
+  "red",
+  "red-2",
+  "pink",
+  "pink-2",
+  "orange",
+  "orange-2",
+  "yellow",
+  "yellow-2",
+  "grey",
+  "perfect-red",
+  "perfect-tan",
+  "perfect-yellow",
+  "perfect-pink",
+  "perfect-mustard",
+  "perfect-dark-orange",
+  "perfect-tan-grey",
+  "perfect-grey",
+  "perfect-black",
+  "perfect-orange",
+  "perfect-brown",
+  "perfect-ox-blood",
+  "perfect-green"
+);
+
+$more-colors: (
+  "primary",
+  "secondary",
+  "success",
+  "danger",
+  "info",
+  "warning",
+  "dark",
+  "light"
+);
+
+$true-colors: (
+  "white",
+  "blue",
+  "blue-grey",
+  "green",
+  "red",
+  "pink",
+  "orange",
+  "yellow",
+  "grey",
+  "dark",
+  "perfect-tan",
+  "perfect-yellow",
+  "perfect-pink",
+  "perfect-mustard",
+  "perfect-dark-orange",
+  "perfect-tan-grey",
+  "perfect-grey",
+  "perfect-black",
+  "perfect-orange",
+  "perfect-brown",
+  "perfect-ox-blood",
+  "perfect-green"
+);
+
+$loopables: "", "-1", "-2", "-3", "-4", "-5", "-6", "-7", "-8", "-9", "-10";
 
 :root {
-  --tf-primary: scale-color($venus, $lightness: +15%);
   --tf-primary: #1976d2;
   --tf-secondary: #26a69a;
   --tf-success: #21ba45;
@@ -34,20 +170,67 @@ $venus: #998099;
   --tf-dark: #1d1d1d;
   --tf-light: #dddcdc;
 
+  --tf-white: rgb(255, 255, 255);
   --tf-blue: rgba(41, 76, 240, 1);
   --tf-blue-2: rgba(41, 152, 240, 1);
+  --tf-blue-grey: rgb(241, 245, 249);
+  --tf-light-blue: rgba(49, 139, 243, 0.904);
   --tf-green: rgba(42, 158, 6, 1);
   --tf-green-2: rgba(116, 206, 17, 1);
+  --tf-light-green: rgba(163, 240, 111, 0.904);
   --tf-red: rgba(235, 55, 3, 1);
   --tf-red-2: rgb(235, 69, 18);
+  --tf-light-red: rgba(247, 107, 89, 0.904);
   --tf-pink: rgba(191, 42, 169, 1);
   --tf-pink-2: rgb(230, 51, 203);
   --tf-orange: rgba(235, 105, 3, 1);
   --tf-orange-2: rgb(235, 127, 45);
   --tf-yellow: rgb(252, 205, 19);
   --tf-yellow-2: rgb(248, 230, 35);
+  --tf-light-yellow: rgba(247, 223, 89, 0.904);
+  --tf-grey: rgb(199, 199, 199);
+
+  --tf-perfect-red: rgb(196, 0, 12);
+  --tf-perfect-tan: rgb(252, 212, 179);
+  --tf-perfect-yellow: rgb(252, 246, 187);
+  --tf-perfect-pink: rgb(242, 146, 182);
+  --tf-perfect-mustard: rgb(255, 214, 17);
+  --tf-perfect-dark-orange: rgb(255, 87, 0);
+  --tf-perfect-tan-grey: rgb(228, 194, 193);
+  --tf-perfect-grey: rgb(99, 84, 66);
+  --tf-perfect-black: rgb(34, 17, 5);
+  --tf-perfect-orange: rgb(253, 121, 0);
+  --tf-perfect-brown: rgb(222, 146, 115);
+  --tf-perfect-ox-blood: rgb(72, 13, 26);
+  --tf-perfect-green: rgb(15, 47, 23);
 }
 
-body {
-  background-color: var(--tf-green-2);
+/**
+  * Generate CSS Text colors
+  * Loop through $colors to generate classes
+  * Classes will be usable like .tf-text-{$color}
+  * Example: <div class"tf-text-primary"></div>
+  *
+  * Hover effect can be achieved by adding the tf-hover class.
+  * Example: <div class"tf-text-primary tf-hover"></div>
+  *
+  * Generated class would look like:
+  * .tf-text-primary {
+  *     color: var(--tf-primary) !important;
+  * }
+  */
+.tf {
+  &-text {
+    @each $color in $colors {
+      &-#{$color} {
+        color: var(--tf-#{$color}) !important;
+      }
+      &-#{$color}.tf-hover:hover {
+        $get-color: map-get($color-map, $color);
+        @if $get-color != null {
+          color: darken($get-color, 15%) !important;
+        }
+      }
+    }
+  }
 }
